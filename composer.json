@@ -1,0 +1,41 @@
+{
+    "name": "symfony-doge/ministry-of-truth-client",
+    "type": "library",
+    "description": "An interface between vacancy aggregator & sanity index provider",
+    "homepage": "https://github.com/symfony-doge/ministry-of-truth-client",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Petrov",
+            "email": "itnelo@gmail.com",
+            "homepage": "https://ppetrov.it",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MinistryOfTruthClient\\": ["src/"]
+        }
+    },
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.0",
+        "symfony/property-access": "~3.4 || ~4.0",
+        "symfony/property-info": "~3.4 || ~4.0",
+        "symfony/serializer": "^4.0"
+    },
+    "require-dev": {
+        "psr/log": "^1.0"
+    },
+    "suggest": {
+        "psr/log": "^1.0 is required for using a log functional"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.x-dev"
+        }
+    }
+}
