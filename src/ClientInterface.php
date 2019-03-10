@@ -49,7 +49,7 @@ use MinistryOfTruthClient\Dto\ResponseDto;
  * $customResponseData = $response->getSomeData();
  * ```
  *
- * This interface should be implemented by custom implementation, based on world region with its own cultural memes
+ * This interface should be implemented by a custom service, based on world region with its own cultural memes
  *
  * @see RequestDto a base request structure
  * @see ResponseDto a base response structure
