@@ -19,8 +19,40 @@ use MinistryOfTruthClient\Dto\ResponseDto as BaseResponseDto;
 
 /**
  * Response structure for immediate text indexing action
+ *
+ * Example in raw JSON:
+ * ```
+ * {
+ *     "status": "OK",
+ *     "errors": [],
+ *     "index": {
+ *         "value": 56.18,
+ *         "tags": {
+ *             "soft": [
+ *                 {
+ *                     "name": "young_dynamic",
+ *                     "title": "Молодая, динамично развивающаяся компания",
+ *                     "description": "Заезженная фраза, не несёт никакой смысловой нагрузки в деловой беседе",
+ *                     "color": "#FFB6C1",
+ *                     "image_url": "http://lorempixel.com/100/100/cats"
+ *                 }
+ *             ],
+ *             "hard": [],
+ *             "lulz": [
+ *                 {
+ *                     "name": "cafeteria",
+ *                     "title": "This is a cafeteria with cookies and coffee",
+ *                     "description": "A funny practice to put \"cookies\" & \"coffee\" in vacancy text for attention",
+ *                     "color": "#FFB6C1",
+ *                     "image_url": "http://lorempixel.com/100/100/cats"
+ *                 }
+ *             ]
+ *         }
+ *     }
+ * }
+ * ```
  */
-class ResponseDto extends BaseResponseDto
+final class ResponseDto extends BaseResponseDto
 {
     /**
      * Sanity index content

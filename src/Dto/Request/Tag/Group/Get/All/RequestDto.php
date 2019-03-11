@@ -13,13 +13,13 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto\Request\Tag\Group\Get;
+namespace MinistryOfTruthClient\Dto\Request\Tag\Group\Get\All;
 
-use MinistryOfTruthClient\Dto\RequestDto;
+use MinistryOfTruthClient\Dto\RequestDto as BaseRequestDto;
 
 /**
  * Request structure for getting all tag groups
  */
-final class RequestAllDto extends RequestDto
+final class RequestDto extends BaseRequestDto
 {
 }

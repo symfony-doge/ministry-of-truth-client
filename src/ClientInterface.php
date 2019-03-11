@@ -16,9 +16,10 @@ declare(strict_types=1);
 namespace MinistryOfTruthClient;
 
 use MinistryOfTruthClient\Dto\Request\Index\RequestDto as IndexRequest;
-use MinistryOfTruthClient\Dto\Request\Tag\Group\Get\RequestAllDto as GetTagGroupsRequest;
+use MinistryOfTruthClient\Dto\Request\Tag\Group\Get\All\RequestDto as GetTagGroupsRequest;
 use MinistryOfTruthClient\Dto\RequestDto;
 use MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
+use MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
 use MinistryOfTruthClient\Dto\ResponseDto;
 
 /**
@@ -46,7 +47,7 @@ use MinistryOfTruthClient\Dto\ResponseDto;
  *     }
  * }
  *
- * // Check for a custom method-specific response data.
+ * // Check for a custom, method-specific response data.
  * $customResponseData = $response->getSomeData();
  * ```
  *
@@ -70,6 +71,8 @@ interface ClientInterface
      * Returns currently available sanity tag groups
      *
      * @param GetTagGroupsRequest $request A request instance with action-specific input data
+     *
+     * @return GetTagGroupsResponse
      */
-    public function getTagGroups(GetTagGroupsRequest $request); /* TODO: describe response */
+    public function getTagGroups(GetTagGroupsRequest $request): GetTagGroupsResponse;
 }
