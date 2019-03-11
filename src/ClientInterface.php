@@ -18,6 +18,7 @@ namespace MinistryOfTruthClient;
 use MinistryOfTruthClient\Dto\Request\Index\RequestDto as IndexRequest;
 use MinistryOfTruthClient\Dto\Request\Tag\Group\Get\RequestAllDto as GetTagGroupsRequest;
 use MinistryOfTruthClient\Dto\RequestDto;
+use MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
 use MinistryOfTruthClient\Dto\ResponseDto;
 
 /**
@@ -60,8 +61,10 @@ interface ClientInterface
      * Performs input data contextual analysis and indexing
      *
      * @param IndexRequest $request A request instance with action-specific input data
+     *
+     * @return IndexResponse
      */
-    public function index(IndexRequest $request); /* TODO: describe response */
+    public function index(IndexRequest $request): IndexResponse;
 
     /**
      * Returns currently available sanity tag groups
