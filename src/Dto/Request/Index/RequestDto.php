@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace MinistryOfTruthClient\Dto\Request\Index;
 
 use MinistryOfTruthClient\Dto\RequestDto as BaseRequestDto;
+use MinistryOfTruthClient\Enum\Request\Index\Context;
 
 /**
  * Request structure for immediate text indexing action
@@ -23,33 +24,50 @@ use MinistryOfTruthClient\Dto\RequestDto as BaseRequestDto;
 final class RequestDto extends BaseRequestDto
 {
     /**
-     * Text to be indexed
+     * Data for analysis, indexed by context name
      *
-     * @var string
+     * Example:
+     * ```
+     * [
+     *     Context\Vacancy::DESCRIPTION => 'We Are Hiring!',
+     *     Context\Vacancy::POSITION    => 'Experienced Ruby Engineer'
+     * ]
+     * ```
+     *
+     * @var array
      */
-    private $text;
-
-    /* TODO: context hints for fields, based on Enum\Request\Index\? */
+    private $context;
 
     /**
-     * Returns text to be indexed
-     *
-     * @return string
+     * RequestDto constructor.
      */
-    public function getText(): ?string
+    public function __construct()
     {
-        return $this->text;
+        $this->context = [];
     }
 
     /**
-     * Sets text to be indexed
+     * Returns data for analysis indexed by context name
      *
-     * @param string $text Text to be indexed
+     * @return array
+     */
+    public function getContext(): array
+    {
+        return $this->context;
+    }
+
+    /**
+     * Adds data for analysis with specified context mark
+     *
+     * @param string $contextName Context name
+     * @param string $data        Data for analysis
      *
      * @return void
+     *
+     * @see Context\Vacancy
      */
-    public function setText(string $text): void
+    public function addContext(string $contextName, string $data): void
     {
-        $this->text = $text;
+        $this->context[$contextName] = $data;
     }
 }
