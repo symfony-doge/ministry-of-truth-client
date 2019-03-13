@@ -52,13 +52,13 @@ class InvalidRequestException extends RuntimeException implements MinistryOfTrut
     /**
      * Returns an exception with specified violation code and message
      *
-     * @param int|null $violationCode    Violation code
-     * @param string   $violationMessage Violation message
+     * @param int    $violationCode    Violation code
+     * @param string $violationMessage Violation message
      *
      * @return InvalidRequestException
      */
     public static function withViolationCodeAndMessage(
-        ?int $violationCode,
+        int $violationCode,
         string $violationMessage
     ): InvalidRequestException {
         $message = str_replace('{violationMessage}', $violationMessage, self::MESSAGE_WITH_VIOLATION);
