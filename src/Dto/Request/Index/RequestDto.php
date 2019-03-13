@@ -35,6 +35,8 @@ final class RequestDto extends BaseRequestDto
      * ```
      *
      * @var array
+     *
+     * TODO: validation constraint
      */
     private $context;
 

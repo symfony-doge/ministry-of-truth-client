@@ -15,6 +15,8 @@ declare(strict_types=1);
 
 namespace MinistryOfTruthClient\Dto;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Base request structure to API endpoint
  */
@@ -24,13 +26,17 @@ class RequestDto
      * The authorization token for access control
      *
      * @var string
+     *
+     * @Assert\NotBlank(groups={"motc.request.validation.common"})
      */
     private $authorizationToken;
 
     /**
-     * Translation choice for text fields in response
+     * Translation choice for text fields in the response
      *
      * @var string
+     *
+     * @Assert\Locale(groups={"motc.request.validation.common"})
      */
     private $locale;
 
