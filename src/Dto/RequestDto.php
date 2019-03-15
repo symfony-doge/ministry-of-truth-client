@@ -43,7 +43,7 @@ class RequestDto
     /**
      * Returns the authorization token for access control
      *
-     * @return string
+     * @return string|null
      */
     final public function getAuthorizationToken(): ?string
     {
@@ -65,7 +65,7 @@ class RequestDto
     /**
      * Returns a translation choice for text fields in response
      *
-     * @return string
+     * @return string|null
      */
     final public function getLocale(): ?string
     {
