@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 namespace MinistryOfTruthClient\Uri;
 
+use Closure;
 use MinistryOfTruthClient\Enum\Request\Type as RequestType;
 use MinistryOfTruthClient\Enum\Uri\Type as UriType;
 use MinistryOfTruthClient\Exception\Uri\Builder\UriNotConfiguredException;
@@ -115,7 +116,10 @@ class Builder
             'requests',
             function (OptionsResolver $requestsOptionsResolver) use ($requestTypes) {
                 foreach ($requestTypes as $requestType) {
-                    $requestsOptionsResolver->setDefault($requestType, [$this, 'configureUriOptions']);
+                    $requestsOptionsResolver->setDefault(
+                        $requestType,
+                        Closure::fromCallable([$this, 'configureUriOptions'])
+                    );
                 }
             }
         );
