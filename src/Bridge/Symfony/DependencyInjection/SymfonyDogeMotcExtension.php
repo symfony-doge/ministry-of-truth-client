@@ -21,7 +21,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * MinistryOfTruthClient dependency injection extension.
+ * MinistryOfTruthClient bundle dependency injection extension.
  */
 class SymfonyDogeMotcExtension extends Extension
 {
@@ -40,8 +40,8 @@ class SymfonyDogeMotcExtension extends Extension
         $config        = $this->processConfiguration($configuration, $configs);
 
         $uriBuilderOptions = [
-            'base_uri' => $config['client']['base_uri'],
-            'requests' => $config['client']['requests'],
+            'base_uri' => $config['api']['base_uri'],
+            //'requests' => $config['api']['requests'],
         ];
 
         $container->setParameter('symfony_doge.ministry_of_truth_client.uri.builder.options', $uriBuilderOptions);

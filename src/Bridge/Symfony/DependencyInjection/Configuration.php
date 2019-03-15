@@ -19,7 +19,7 @@ use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 /**
- * AppBundle configuration.
+ * SymfonyDogeMotcBundle configuration.
  */
 class Configuration implements ConfigurationInterface
 {
@@ -34,9 +34,10 @@ class Configuration implements ConfigurationInterface
         $rootNode
             ->children()
                 ->arrayNode('api')
+                    ->isRequired()
                     ->children()
                         ->scalarNode('base_uri')
-                            ->info('URI to API endpoint (without a trailing slash), e.g. \'https://api.domain.ltd\'')
+                            ->info('API endpoint (without a trailing slash), e.g. \'https://api.domain.ltd\'')
                             ->isRequired()
                             ->cannotBeEmpty()
                         ->end()
