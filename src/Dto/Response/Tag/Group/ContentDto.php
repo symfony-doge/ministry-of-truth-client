@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto\Response\Tag\Group;
+namespace SymfonyDoge\MinistryOfTruthClient\Dto\Response\Tag\Group;
 
 /**
  * Sanity group of tags content structure

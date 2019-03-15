@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Enum\Response;
+namespace SymfonyDoge\MinistryOfTruthClient\Enum\Response;
 
 /**
  * Dictionary of response statuses from API endpoint

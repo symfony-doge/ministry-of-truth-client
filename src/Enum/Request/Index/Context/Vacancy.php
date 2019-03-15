@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Enum\Request\Index\Context;
+namespace SymfonyDoge\MinistryOfTruthClient\Enum\Request\Index\Context;
 
 /**
  * Dictionary of supported vacancy data parts for analysis

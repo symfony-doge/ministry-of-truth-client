@@ -13,9 +13,9 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Exception\Uri\Builder;
+namespace SymfonyDoge\MinistryOfTruthClient\Exception\Uri\Builder;
 
-use MinistryOfTruthClient\Exception\MinistryOfTruthClientExceptionInterface;
+use SymfonyDoge\MinistryOfTruthClient\Exception\MinistryOfTruthClientExceptionInterface;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\Response;
 use Throwable;

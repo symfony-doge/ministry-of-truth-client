@@ -13,19 +13,19 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient;
+namespace SymfonyDoge\MinistryOfTruthClient;
 
 use GuzzleHttp\ClientInterface as HttpClientInterface;
-use MinistryOfTruthClient\Dto\Request\Index\RequestDto as IndexRequest;
-use MinistryOfTruthClient\Dto\Request\Tag\Group\Get\All\RequestDto as GetTagGroupsRequest;
-use MinistryOfTruthClient\Dto\RequestDto;
-use MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
-use MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
-use MinistryOfTruthClient\Enum\Request\Type as RequestType;
-use MinistryOfTruthClient\Uri\Builder;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Request\Index\RequestDto as IndexRequest;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Request\Tag\Group\Get\All\RequestDto as GetTagGroupsRequest;
+use SymfonyDoge\MinistryOfTruthClient\Dto\RequestDto;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
+use SymfonyDoge\MinistryOfTruthClient\Enum\Request\Type as RequestType;
+use SymfonyDoge\MinistryOfTruthClient\Uri\Builder;
 
 /**
  * Base client for communication with API endpoint of the ministry of truth microservice
@@ -63,7 +63,7 @@ class Client implements ClientInterface
     /**
      * Client constructor.
      *
-     * For URI configuration options {@see \MinistryOfTruthClient\Uri\Builder}
+     * For URI configuration options {@see \SymfonyDoge\MinistryOfTruthClient\Uri\Builder}
      *
      * @param HttpClientInterface $httpClient           Sends http requests
      * @param Builder             $uriBuilder           Provides URI for http requests

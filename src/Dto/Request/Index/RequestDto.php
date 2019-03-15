@@ -13,10 +13,10 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto\Request\Index;
+namespace SymfonyDoge\MinistryOfTruthClient\Dto\Request\Index;
 
-use MinistryOfTruthClient\Dto\RequestDto as BaseRequestDto;
-use MinistryOfTruthClient\Enum\Request\Index\Context;
+use SymfonyDoge\MinistryOfTruthClient\Dto\RequestDto as BaseRequestDto;
+use SymfonyDoge\MinistryOfTruthClient\Enum\Request\Index\Context;
 
 /**
  * Request structure for immediate text indexing action

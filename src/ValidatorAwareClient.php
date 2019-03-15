@@ -13,15 +13,15 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient;
+namespace SymfonyDoge\MinistryOfTruthClient;
 
-use MinistryOfTruthClient\Dto\Request\Index\RequestDto as IndexRequest;
-use MinistryOfTruthClient\Dto\Request\Tag\Group\Get\All\RequestDto as GetTagGroupsRequest;
-use MinistryOfTruthClient\Dto\RequestDto;
-use MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
-use MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
-use MinistryOfTruthClient\Enum\Request\Validation\Group;
-use MinistryOfTruthClient\Exception\InvalidRequestException;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Request\Index\RequestDto as IndexRequest;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Request\Tag\Group\Get\All\RequestDto as GetTagGroupsRequest;
+use SymfonyDoge\MinistryOfTruthClient\Dto\RequestDto;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
+use SymfonyDoge\MinistryOfTruthClient\Enum\Request\Validation\Group;
+use SymfonyDoge\MinistryOfTruthClient\Exception\InvalidRequestException;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 

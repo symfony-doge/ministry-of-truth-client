@@ -13,19 +13,13 @@
 
 declare(strict_types=1);
 
-namespace SymfonyDoge\MinistryOfTruthClient\Enum\Request\Validation;
+namespace SymfonyDoge\MinistryOfTruthClient\Bridge\Symfony;
+
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Dictionary of the request validation groups
- *
- * @internal
+ * MinistryOfTruthClient bundle.
  */
-final class Group
+class SymfonyDogeMotcBundle extends Bundle
 {
-    /**
-     * Vacancy description (requirements list, offer)
-     *
-     * @const string
-     */
-    public const COMMON = 'motc.request.validation.common';
 }

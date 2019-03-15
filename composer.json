@@ -14,7 +14,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "MinistryOfTruthClient\\": ["src/"]
+            "SymfonyDoge\\MinistryOfTruthClient\\": ["src/"]
         }
     },
     "require": {

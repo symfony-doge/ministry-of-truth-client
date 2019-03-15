@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Exception;
+namespace SymfonyDoge\MinistryOfTruthClient\Exception;
 
 use RuntimeException;
 use Symfony\Component\HttpFoundation\Response;

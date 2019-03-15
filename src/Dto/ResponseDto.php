@@ -13,10 +13,10 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto;
+namespace SymfonyDoge\MinistryOfTruthClient\Dto;
 
-use MinistryOfTruthClient\Dto\Response\ErrorDto;
-use MinistryOfTruthClient\Enum\Response\Status;
+use SymfonyDoge\MinistryOfTruthClient\Dto\Response\ErrorDto;
+use SymfonyDoge\MinistryOfTruthClient\Enum\Response\Status;
 
 /**
  * Base response structure from API endpoint

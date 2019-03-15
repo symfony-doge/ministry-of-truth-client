@@ -13,12 +13,12 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Uri;
+namespace SymfonyDoge\MinistryOfTruthClient\Uri;
 
 use Closure;
-use MinistryOfTruthClient\Enum\Request\Type as RequestType;
-use MinistryOfTruthClient\Enum\Uri\Type as UriType;
-use MinistryOfTruthClient\Exception\Uri\Builder\UriNotConfiguredException;
+use SymfonyDoge\MinistryOfTruthClient\Enum\Request\Type as RequestType;
+use SymfonyDoge\MinistryOfTruthClient\Enum\Uri\Type as UriType;
+use SymfonyDoge\MinistryOfTruthClient\Exception\Uri\Builder\UriNotConfiguredException;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -48,7 +48,7 @@ class Builder
      *             'path' => '/index'
      *         ],
      *         'get_tag_groups' => [
-     *             'type' => \MinistryOfTruthClient\Enum\Uri\Type::ABSOLUTE,
+     *             'type' => \SymfonyDoge\MinistryOfTruthClient\Enum\Uri\Type::ABSOLUTE,
      *             'path' => 'https://api.second-domain.ltd/2.0/tag/groups'
      *         ]
      *     ]

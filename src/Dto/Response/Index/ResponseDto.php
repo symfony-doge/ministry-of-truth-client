@@ -13,9 +13,9 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto\Response\Index;
+namespace SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index;
 
-use MinistryOfTruthClient\Dto\ResponseDto as BaseResponseDto;
+use SymfonyDoge\MinistryOfTruthClient\Dto\ResponseDto as BaseResponseDto;
 
 /**
  * Response structure for immediate text indexing action

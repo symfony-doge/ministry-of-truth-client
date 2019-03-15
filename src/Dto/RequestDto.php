@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto;
+namespace SymfonyDoge\MinistryOfTruthClient\Dto;
 
 use Symfony\Component\Validator\Constraints as Assert;
 

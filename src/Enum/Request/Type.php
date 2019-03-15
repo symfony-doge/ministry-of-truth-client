@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Enum\Request;
+namespace SymfonyDoge\MinistryOfTruthClient\Enum\Request;
 
 /**
  * Dictionary of request types

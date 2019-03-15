@@ -1,0 +1,8 @@
+services:
+    symfony_doge.ministry_of_truth_client.uri.builder:
+        alias: 'symfony_doge.ministry_of_truth_client.uri.builder.base'
+
+    symfony_doge.ministry_of_truth_client.uri.builder.base:
+        class: SymfonyDoge\MinistryOfTruthClient\Uri\Builder
+        arguments:
+            - '%symfony_doge.ministry_of_truth_client.uri.builder.options%'

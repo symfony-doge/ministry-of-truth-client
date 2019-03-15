@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Enum\Uri;
+namespace SymfonyDoge\MinistryOfTruthClient\Enum\Uri;
 
 /**
  * Dictionary of URI types for client options

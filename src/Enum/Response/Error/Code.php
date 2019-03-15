@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Enum\Response\Error;
+namespace SymfonyDoge\MinistryOfTruthClient\Enum\Response\Error;
 
 use Symfony\Component\HttpFoundation\Response;
 

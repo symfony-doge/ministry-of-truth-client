@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto\Response\Index;
+namespace SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index;
 
 /**
  * Sanity tag structure

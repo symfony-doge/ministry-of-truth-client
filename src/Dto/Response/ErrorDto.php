@@ -13,9 +13,9 @@
 
 declare(strict_types=1);
 
-namespace MinistryOfTruthClient\Dto\Response;
+namespace SymfonyDoge\MinistryOfTruthClient\Dto\Response;
 
-use MinistryOfTruthClient\Enum\Response\Error\Code;
+use SymfonyDoge\MinistryOfTruthClient\Enum\Response\Error\Code;
 
 /**
  * Error data structure in response from API endpoint
