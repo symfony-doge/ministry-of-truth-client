@@ -1,17 +1,17 @@
 services:
-    symfony_doge.ministry_of_truth_client.client:
-        alias: 'symfony_doge.ministry_of_truth_client.validator_aware_client'
+    symfony_doge.motc.client:
+        alias: 'symfony_doge.motc.validator_aware_client'
 
-    symfony_doge.ministry_of_truth_client.validator_aware_client:
+    symfony_doge.motc.validator_aware_client:
         class: SymfonyDoge\MinistryOfTruthClient\ValidatorAwareClient
         arguments:
-            - '@symfony_doge.ministry_of_truth_client.base_client'
+            - '@symfony_doge.motc.base_client'
             - '@validator'
 
-    symfony_doge.ministry_of_truth_client.base_client:
+    symfony_doge.motc.base_client:
         class: SymfonyDoge\MinistryOfTruthClient\Client
         arguments:
             - '@?'
-            - '@symfony_doge.ministry_of_truth_client.uri.builder'
+            - '@symfony_doge.motc.uri.builder'
             - '@serializer'
             - '@serializer'

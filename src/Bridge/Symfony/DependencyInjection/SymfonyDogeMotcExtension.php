@@ -41,9 +41,9 @@ class SymfonyDogeMotcExtension extends Extension
 
         $uriBuilderOptions = [
             'base_uri' => $config['api']['base_uri'],
-            //'requests' => $config['api']['requests'],
+            'requests' => $config['api']['requests'],
         ];
 
-        $container->setParameter('symfony_doge.ministry_of_truth_client.uri.builder.options', $uriBuilderOptions);
+        $container->setParameter('symfony_doge.motc.uri.builder.options', $uriBuilderOptions);
     }
 }
