@@ -1,0 +1,6 @@
+services:
+    symfony_doge.motc.request.serializer:
+        alias: '@serializer'
+
+    symfony_doge.motc.response.deserializer:
+        alias: '@serializer'

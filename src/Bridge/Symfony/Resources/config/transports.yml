@@ -1,0 +1,6 @@
+services:
+    symfony_doge.motc.transport.http:
+        alias: 'symfony_doge.motc.transport.http.default'
+
+    symfony_doge.motc.transport.http.default:
+        class: GuzzleHttp\Client

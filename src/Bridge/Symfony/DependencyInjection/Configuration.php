@@ -27,6 +27,13 @@ use SymfonyDoge\MinistryOfTruthClient\Enum\Uri\Type as UriType;
 class Configuration implements ConfigurationInterface
 {
     /**
+     * Service id for default http transport implementation
+     *
+     * @const string
+     */
+    private const SERVICE_TRANSPORT_HTTP_DEFAULT = 'symfony_doge.motc.transport.http.default';
+
+    /**
      * Available request types for api node
      *
      * @const string[]
@@ -50,6 +57,18 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('transport')
+                    ->children()
+                        ->arrayNode('http')
+                            ->children()
+                                ->scalarNode('service_id')
+                                    ->info('Service for sending http requests')
+                                    ->defaultValue(self::SERVICE_TRANSPORT_HTTP_DEFAULT)
+                                ->end()
+                            ->end()
+                        ->end()
+                    ->end()
+                ->end()
                 ->arrayNode('api')
                     ->isRequired()
                     ->children()
@@ -85,7 +104,7 @@ class Configuration implements ConfigurationInterface
         $node        = $treeBuilder->root('requests');
 
         $node
-            ->info('Describes actions allowed by client')
+            ->info('Describes actions allowed by a client')
             ->example(self::REQUEST_TYPES)
             ->isRequired()
             ->requiresAtLeastOneElement()

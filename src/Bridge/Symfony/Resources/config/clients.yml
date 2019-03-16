@@ -11,7 +11,7 @@ services:
     symfony_doge.motc.base_client:
         class: SymfonyDoge\MinistryOfTruthClient\Client
         arguments:
-            - '@?'
+            - '@symfony_doge.motc.transport.http'
             - '@symfony_doge.motc.uri.builder'
-            - '@serializer'
-            - '@serializer'
+            - '@symfony_doge.motc.request.serializer'
+            - '@symfony_doge.motc.response.deserializer'

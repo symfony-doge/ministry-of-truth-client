@@ -26,6 +26,13 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 class SymfonyDogeMotcExtension extends Extension
 {
     /**
+     * Alias for service that performs request transfer by http
+     *
+     * @const string
+     */
+    private const SERVICE_ALIAS_TRANSPORT_HTTP = 'symfony_doge.motc.transport.http';
+
+    /**
      * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
@@ -34,10 +41,14 @@ class SymfonyDogeMotcExtension extends Extension
         $loader  = new YamlFileLoader($container, $locator);
 
         $loader->load('config' . DIRECTORY_SEPARATOR . 'uri_builders.yml');
+        $loader->load('config' . DIRECTORY_SEPARATOR . 'transports.yml');
+        $loader->load('config' . DIRECTORY_SEPARATOR . 'serializers.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'clients.yml');
 
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
+
+        $container->setAlias(self::SERVICE_ALIAS_TRANSPORT_HTTP, $config['transport']['http']['service_id']);
 
         $uriBuilderOptions = [
             'base_uri' => $config['api']['base_uri'],
