@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace SymfonyDoge\MinistryOfTruthClient;
 
 use GuzzleHttp\ClientInterface as HttpClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -25,6 +26,7 @@ use SymfonyDoge\MinistryOfTruthClient\Dto\RequestDto;
 use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
 use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
 use SymfonyDoge\MinistryOfTruthClient\Enum\Request\Type as RequestType;
+use SymfonyDoge\MinistryOfTruthClient\Exception\RequestFailedException;
 use SymfonyDoge\MinistryOfTruthClient\Uri\Builder;
 
 /**
@@ -109,11 +111,16 @@ class Client implements ClientInterface
      */
     protected function request(string $requestType, RequestDto $request, string $responseClass)
     {
-        $uri = $this->uriBuilder->getUri($requestType);
+        $uri   = $this->uriBuilder->getUri($requestType);
+        $query = $this->requestNormalizer->normalize($request);
 
-        // TODO: try-catch, logging
-        $query    = $this->requestNormalizer->normalize($request);
-        $response = $this->httpClient->request(Request::METHOD_GET, $uri, ['query' => $query]);
+        try {
+            $response = $this->httpClient->request(Request::METHOD_GET, $uri, ['query' => $query]);
+        } catch (GuzzleException $e) {
+            $message = $e->getMessage();
+
+            throw RequestFailedException::withDescription($message);
+        }
 
         $responseBody = (string) $response->getBody();
 
