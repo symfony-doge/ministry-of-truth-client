@@ -30,7 +30,7 @@ use SymfonyDoge\MinistryOfTruthClient\Exception\RequestFailedException;
 use SymfonyDoge\MinistryOfTruthClient\Uri\Builder;
 
 /**
- * Base client for communication with API endpoint of the ministry of truth microservice
+ * Base client for communication with API endpoint of the Ministry of Truth microservice
  */
 class Client implements ClientInterface
 {

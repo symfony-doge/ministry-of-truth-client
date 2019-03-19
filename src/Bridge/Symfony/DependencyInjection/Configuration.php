@@ -66,6 +66,12 @@ class Configuration implements ConfigurationInterface
                                     ->defaultValue(self::SERVICE_TRANSPORT_HTTP_DEFAULT)
                                 ->end()
                             ->end()
+                            ->beforeNormalization()
+                                ->ifString()
+                                ->then(function ($v) {
+                                    return ['service_id' => $v];
+                                })
+                            ->end()
                         ->end()
                     ->end()
                 ->end()
