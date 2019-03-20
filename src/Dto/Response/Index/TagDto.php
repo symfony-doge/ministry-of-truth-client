@@ -49,6 +49,13 @@ class TagDto
     private $color;
 
     /**
+     * Tag image URL
+     *
+     * @var string
+     */
+    private $imageUrl;
+
+    /**
      * Returns unique tag name
      *
      * @return string
@@ -134,5 +141,27 @@ class TagDto
     public function setColor(string $color): void
     {
         $this->color = $color;
+    }
+
+    /**
+     * Returns tag image URL
+     *
+     * @return string
+     */
+    public function getImageUrl(): string
+    {
+        return $this->imageUrl;
+    }
+
+    /**
+     * Sets tag image URL
+     *
+     * @param string $imageUrl Tag image URL
+     *
+     * @return void
+     */
+    public function setImageUrl(string $imageUrl): void
+    {
+        $this->imageUrl = $imageUrl;
     }
 }
