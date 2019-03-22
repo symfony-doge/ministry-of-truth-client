@@ -43,6 +43,7 @@ class SymfonyDogeMotcExtension extends Extension
         $loader->load('config' . DIRECTORY_SEPARATOR . 'uri_builders.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'transports.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'serializers.yml');
+        $loader->load('config' . DIRECTORY_SEPARATOR . 'credentials.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'clients.yml');
 
         $configuration = new Configuration();
@@ -54,7 +55,11 @@ class SymfonyDogeMotcExtension extends Extension
             'base_uri' => $config['api']['base_uri'],
             'requests' => $config['api']['requests'],
         ];
-
         $container->setParameter('symfony_doge.motc.uri.builder.options', $uriBuilderOptions);
+
+        $container->setParameter(
+            'symfony_doge.motc.credentials.authorization_token',
+            $config['credentials']['authorization_token']
+        );
     }
 }

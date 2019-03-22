@@ -124,6 +124,9 @@ class Client implements ClientInterface
 
         $responseBody = (string) $response->getBody();
 
-        return $this->responseDeserializer->deserialize($responseBody, $responseClass, 'json');
+        // TODO: try-catch.
+        $responseDto = $this->responseDeserializer->deserialize($responseBody, $responseClass, 'json');
+
+        return $responseDto;
     }
 }
