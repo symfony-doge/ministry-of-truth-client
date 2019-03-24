@@ -6,7 +6,7 @@ services:
         class: SymfonyDoge\MinistryOfTruthClient\ValidatorAwareClient
         arguments:
             - '@symfony_doge.motc.base_client'
-            - '@validator'
+            - '@symfony_doge.motc.request.validator'
 
     symfony_doge.motc.base_client:
         class: SymfonyDoge\MinistryOfTruthClient\Client
@@ -15,3 +15,6 @@ services:
             - '@symfony_doge.motc.uri.builder'
             - '@symfony_doge.motc.request.serializer'
             - '@symfony_doge.motc.response.deserializer'
+
+    symfony_doge.motc.dummy_client:
+        class: SymfonyDoge\MinistryOfTruthClient\DummyClient

@@ -42,6 +42,7 @@ class SymfonyDogeMotcExtension extends Extension
 
         $loader->load('config' . DIRECTORY_SEPARATOR . 'uri_builders.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'transports.yml');
+        $loader->load('config' . DIRECTORY_SEPARATOR . 'validators.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'serializers.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'credentials.yml');
         $loader->load('config' . DIRECTORY_SEPARATOR . 'clients.yml');

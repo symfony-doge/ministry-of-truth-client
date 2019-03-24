@@ -1,0 +1,3 @@
+services:
+    symfony_doge.motc.request.validator:
+        alias: 'validator'
