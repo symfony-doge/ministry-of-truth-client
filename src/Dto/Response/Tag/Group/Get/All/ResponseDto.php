@@ -29,7 +29,7 @@ use SymfonyDoge\MinistryOfTruthClient\Dto\ResponseDto as BaseResponseDto;
  *     "tag_groups": [
  *         {
  *             "name": "soft",
- *             "description": "A senseless verbiage, poor language or just a spam words",
+ *             "description": "A senseless verbiage, poor language or just a spam",
  *             "color": "#61C3FF"
  *         }
  *     ]

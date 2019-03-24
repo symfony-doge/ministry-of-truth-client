@@ -15,6 +15,7 @@ declare(strict_types=1);
 
 namespace SymfonyDoge\MinistryOfTruthClient;
 
+use Exception;
 use GuzzleHttp\ClientInterface as HttpClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,6 +28,7 @@ use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexRes
 use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
 use SymfonyDoge\MinistryOfTruthClient\Enum\Request\Type as RequestType;
 use SymfonyDoge\MinistryOfTruthClient\Exception\RequestFailedException;
+use SymfonyDoge\MinistryOfTruthClient\Exception\ResponseDeserializationFailedException;
 use SymfonyDoge\MinistryOfTruthClient\Uri\Builder;
 
 /**
@@ -65,7 +67,7 @@ class Client implements ClientInterface
     /**
      * Client constructor.
      *
-     * For URI configuration options {@see \SymfonyDoge\MinistryOfTruthClient\Uri\Builder}
+     * For URI configuration options {@see SymfonyDoge\MinistryOfTruthClient\Uri\Builder}
      *
      * @param HttpClientInterface $httpClient           Sends http requests
      * @param Builder             $uriBuilder           Provides URI for http requests
@@ -117,16 +119,19 @@ class Client implements ClientInterface
         try {
             $response = $this->httpClient->request(Request::METHOD_GET, $uri, ['query' => $query]);
         } catch (GuzzleException $e) {
-            $message = $e->getMessage();
+            $description = $e->getMessage();
 
-            throw RequestFailedException::withDescription($message);
+            throw RequestFailedException::withDescription($description);
         }
 
         $responseBody = (string) $response->getBody();
 
-        // TODO: try-catch.
-        $responseDto = $this->responseDeserializer->deserialize($responseBody, $responseClass, 'json');
+        try {
+            return $this->responseDeserializer->deserialize($responseBody, $responseClass, 'json');
+        } catch (Exception $e) {
+            $description = $e->getMessage();
 
-        return $responseDto;
+            throw ResponseDeserializationFailedException::withDescription($description);
+        }
     }
 }
