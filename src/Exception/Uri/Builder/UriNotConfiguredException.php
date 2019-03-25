@@ -40,6 +40,14 @@ class UriNotConfiguredException extends RuntimeException implements MinistryOfTr
     public const MESSAGE_WITH_REQUEST_TYPE = "URI is not configured for request '{requestType}'.";
 
     /**
+     * Error message with request type and missed URI parameter
+     *
+     * @const string
+     */
+    public const MESSAGE_WITH_REQUEST_TYPE_AND_PARAMETER_NAME =
+        "URI parameter '{parameterName}' is not configured for request '{requestType}'.";
+
+    /**
      * {@inheritdoc}
      */
     public function __construct(
@@ -60,6 +68,27 @@ class UriNotConfiguredException extends RuntimeException implements MinistryOfTr
     public static function withRequestType(string $requestType): UriNotConfiguredException
     {
         $message = str_replace('{requestType}', $requestType, self::MESSAGE_WITH_REQUEST_TYPE);
+
+        return new static($message);
+    }
+
+    /**
+     * Returns an exception with specified request type if required URI parameter is not present
+     *
+     * @param string $requestType   Request type
+     * @param string $parameterName Missed URI parameter name
+     *
+     * @return UriNotConfiguredException
+     */
+    public static function withRequestTypeAndParameterName(
+        string $requestType,
+        string $parameterName
+    ): UriNotConfiguredException {
+        $message = str_replace(
+            ['{parameterName', '{requestType}'],
+            [$parameterName, $requestType],
+            self::MESSAGE_WITH_REQUEST_TYPE_AND_PARAMETER_NAME
+        );
 
         return new static($message);
     }

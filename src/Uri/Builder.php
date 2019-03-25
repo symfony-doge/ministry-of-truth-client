@@ -92,6 +92,11 @@ class Builder
 
         $uriOptions = $requestsAvailable[$requestType];
 
+        // Method is safe without this check if an options resolver 4.2 or greater is used (see configureOptions).
+        if (empty($uriOptions['path'])) {
+            throw UriNotConfiguredException::withRequestTypeAndParameterName($requestType, 'path');
+        }
+
         if (UriType::ABSOLUTE === $uriOptions['type']) {
             return $uriOptions['path'];
         }
@@ -112,17 +117,29 @@ class Builder
 
         $requestTypes = [RequestType::INDEX, RequestType::GET_TAG_GROUPS];
 
-        $optionsResolver->setDefault(
-            'requests',
-            function (OptionsResolver $requestsOptionsResolver) use ($requestTypes) {
-                foreach ($requestTypes as $requestType) {
-                    $requestsOptionsResolver->setDefault(
-                        $requestType,
-                        Closure::fromCallable([$this, 'configureUriOptions'])
-                    );
+        // Options resolver ~4.2 provide a convenient way to configure nested options.
+        if (method_exists(OptionsResolver::class, 'isNested')) {
+            $optionsResolver->setDefault(
+                'requests',
+                function (OptionsResolver $requestsOptionsResolver) use ($requestTypes) {
+                    foreach ($requestTypes as $requestType) {
+                        $requestsOptionsResolver->setDefault(
+                            $requestType,
+                            Closure::fromCallable([$this, 'configureUriOptions'])
+                        );
+                    }
                 }
+            );
+        // For compatibility with implementations prior to ~4.2 version (see also path check in getUri).
+        } else {
+            $requestsOptions = [];
+
+            foreach ($requestTypes as $requestType) {
+                $requestsOptions[$requestType] = ['type' => UriType::RELATIVE, 'path' => null];
             }
-        );
+
+            $optionsResolver->setDefault('requests', $requestsOptions);
+        }
 
         $optionsResolver->setRequired('base_uri');
     }
