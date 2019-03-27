@@ -21,6 +21,8 @@ use SymfonyDoge\MinistryOfTruthClient\Dto\RequestDto;
 use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index\ResponseDto as IndexResponse;
 use SymfonyDoge\MinistryOfTruthClient\Dto\Response\Tag\Group\Get\All\ResponseDto as GetTagGroupsResponse;
 use SymfonyDoge\MinistryOfTruthClient\Dto\ResponseDto;
+use SymfonyDoge\MinistryOfTruthClient\Exception\RequestFailedException;
+use SymfonyDoge\MinistryOfTruthClient\Exception\ResponseDeserializationFailedException;
 
 /**
  * Describes API of the Ministry of Truth, a microservice-provider of sanity tags and other provocative stuff
@@ -64,6 +66,9 @@ interface ClientInterface
      * @param IndexRequest $request A request instance with action-specific input data
      *
      * @return IndexResponse
+     *
+     * @throws RequestFailedException
+     * @throws ResponseDeserializationFailedException
      */
     public function index(IndexRequest $request): IndexResponse;
 
@@ -73,6 +78,9 @@ interface ClientInterface
      * @param GetTagGroupsRequest $request A request instance with action-specific input data
      *
      * @return GetTagGroupsResponse
+     *
+     * @throws RequestFailedException
+     * @throws ResponseDeserializationFailedException
      */
     public function getTagGroups(GetTagGroupsRequest $request): GetTagGroupsResponse;
 }

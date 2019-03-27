@@ -110,6 +110,9 @@ class Client implements ClientInterface
      * @param string     $responseClass Class for response object
      *
      * @return mixed
+     *
+     * @throws RequestFailedException
+     * @throws ResponseDeserializationFailedException
      */
     protected function request(string $requestType, RequestDto $request, string $responseClass)
     {

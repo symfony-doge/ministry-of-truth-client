@@ -61,6 +61,8 @@ class ValidatorAwareClient implements ClientInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws InvalidRequestException
      */
     public function index(IndexRequest $request): IndexResponse
     {
@@ -69,6 +71,8 @@ class ValidatorAwareClient implements ClientInterface
 
     /**
      * {@inheritdoc}
+     *
+     * @throws InvalidRequestException
      */
     public function getTagGroups(GetTagGroupsRequest $request): GetTagGroupsResponse
     {

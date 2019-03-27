@@ -80,6 +80,8 @@ class Builder
      *
      * @return string
      *
+     * @throws UriNotConfiguredException
+     *
      * @see RequestType
      */
     public function getUri(string $requestType): string
