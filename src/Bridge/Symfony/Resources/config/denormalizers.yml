@@ -5,3 +5,10 @@ services:
             - 'serializer.normalizer'
         arguments:
             - '@serializer.normalizer.object'
+
+    symfony_doge.motc.response.tag.group.get_all_content_denormalizer:
+        class: SymfonyDoge\MinistryOfTruthClient\Denormalizer\Response\Tag\Group\GetAllContentDenormalizer
+        tags:
+            - 'serializer.normalizer'
+        arguments:
+            - '@serializer.normalizer.object'
