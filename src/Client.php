@@ -91,7 +91,7 @@ class Client implements ClientInterface
      */
     public function index(IndexRequest $request): IndexResponse
     {
-        return $this->request(RequestType::INDEX, $request, IndexResponse::class);
+        return $this->request(RequestType::INDEX, $request, Request::METHOD_POST, IndexResponse::class);
     }
 
     /**
@@ -99,7 +99,7 @@ class Client implements ClientInterface
      */
     public function getTagGroups(GetTagGroupsRequest $request): GetTagGroupsResponse
     {
-        return $this->request(RequestType::GET_TAG_GROUPS, $request, GetTagGroupsResponse::class);
+        return $this->request(RequestType::GET_TAG_GROUPS, $request, Request::METHOD_GET, GetTagGroupsResponse::class);
     }
 
     /**
@@ -107,6 +107,7 @@ class Client implements ClientInterface
      *
      * @param string     $requestType   Request type
      * @param RequestDto $request       Request to API endpoint
+     * @param string     $method        HTTP method
      * @param string     $responseClass Class for response object
      *
      * @return mixed
@@ -114,13 +115,20 @@ class Client implements ClientInterface
      * @throws RequestFailedException
      * @throws ResponseDeserializationFailedException
      */
-    protected function request(string $requestType, RequestDto $request, string $responseClass)
+    protected function request(string $requestType, RequestDto $request, string $method, string $responseClass)
     {
         $uri   = $this->uriBuilder->getUri($requestType);
         $query = $this->requestNormalizer->normalize($request);
 
         try {
-            $response = $this->httpClient->request(Request::METHOD_GET, $uri, ['query' => $query]);
+            $options = [];
+            if ($method === Request::METHOD_POST) {
+                $options['json'] = $query;
+            } else {
+                $options['query'] = $query;
+            }
+
+            $response = $this->httpClient->request($method, $uri, $options);
         } catch (GuzzleException $e) {
             $description = $e->getMessage();
 

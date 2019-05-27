@@ -26,7 +26,7 @@ use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
- * Performs input data validation before sending a http request
+ * Performs input data validation before sending an http request
  * This wrapper is used as a lightweight alternative to AOP libraries and acts like a precompiled AOP proxy
  *
  * @see https://docs.spring.io/spring/docs/2.5.x/reference/aop.html

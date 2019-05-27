@@ -1,0 +1,7 @@
+services:
+    symfony_doge.motc.response.index.content_denormalizer:
+        class: SymfonyDoge\MinistryOfTruthClient\Denormalizer\Response\Index\ContentDenormalizer
+        tags:
+            - 'serializer.normalizer'
+        arguments:
+            - '@serializer.normalizer.object'

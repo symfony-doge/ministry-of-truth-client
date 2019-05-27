@@ -21,6 +21,20 @@ namespace SymfonyDoge\MinistryOfTruthClient\Dto\Response\Index;
 class ContentDto
 {
     /**
+     * Value node name in raw response.
+     *
+     * @const string
+     */
+    public const PROPERTY_VALUE = 'value';
+
+    /**
+     * Tags node name in raw response.
+     *
+     * @const string
+     */
+    public const PROPERTY_TAGS = 'tags';
+
+    /**
      * Sanity index value, from 0.00 to 100.00
      *
      * @var float

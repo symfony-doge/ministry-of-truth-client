@@ -40,12 +40,19 @@ class SymfonyDogeMotcExtension extends Extension
         $locator = new FileLocator(__DIR__ . implode(DIRECTORY_SEPARATOR, ['', '..', 'Resources']));
         $loader  = new YamlFileLoader($container, $locator);
 
-        $loader->load('config' . DIRECTORY_SEPARATOR . 'uri_builders.yml');
-        $loader->load('config' . DIRECTORY_SEPARATOR . 'transports.yml');
-        $loader->load('config' . DIRECTORY_SEPARATOR . 'validators.yml');
-        $loader->load('config' . DIRECTORY_SEPARATOR . 'serializers.yml');
-        $loader->load('config' . DIRECTORY_SEPARATOR . 'credentials.yml');
-        $loader->load('config' . DIRECTORY_SEPARATOR . 'clients.yml');
+        $configFiles = [
+            'uri_builders.yml',
+            'transports.yml',
+            'validators.yml',
+            'serializers.yml',
+            'denormalizers.yml',
+            'credentials.yml',
+            'clients.yml',
+        ];
+
+        foreach ($configFiles as $configFile) {
+            $loader->load('config' . DIRECTORY_SEPARATOR . $configFile);
+        }
 
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
